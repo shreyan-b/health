@@ -1,38 +1,167 @@
-.App {
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+}
+
+.app-container {
+  padding: 40px 0;
+  max-width: 1400px;
+  margin: auto;
+  background: #f5f7fa;
+}
+
+.main-title {
   text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  color: #273248;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Horizontal grid, wraps to next line if needed */
+.section-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-section {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(60, 100, 140, 0.11),
+    0 1.5px 6px rgba(60,100,140,0.12);
+  padding: 30px 24px 24px 24px;
+  border: 1.5px solid #e9ecf4;
+  transition: transform 0.14s;
+  flex: 1 1 350px;
+  min-width: 300px;
+  max-width: 400px;
+  word-break: break-word;
+  box-sizing: border-box;
+  margin-bottom: 18px;
+  /* NO vertical overflow */
+  overflow: visible;   
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-section:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 0 9px 24px rgba(60,100,140,0.16);
+}
+
+.card-section h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 13px;
+  color: #3360a3;
+}
+
+.card-section h3 {
+  font-size: 1.08rem;
+  color: #314569;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.list {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 19px;
+  margin-top: 6px;
+}
+
+.list li {
+  background: #f6f8fb;
+  border-radius: 8px;
+  padding: 9px 10px;
+  margin-bottom: 7px;
+  font-size: 0.98rem;
+  color: #222b36;
+  word-break: break-word;
+}
+
+.record-bold {
+  font-weight: 600;
+  color: #3451c3;
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 8px;
+  margin-bottom: 6px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Form Input Styles */
+.form input,
+.form select {
+  padding: 8px 10px;
+  font-size: 1rem;
+  border-radius: 7px;
+  border: 1px solid #d5dae6;
+  background: #f6f8fb;
+  margin-bottom: 3px;
+  transition: border-color 0.15s;
+  word-break: break-word;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: #6b9ef0;
+}
+
+.btn-primary {
+  padding: 10px 0;
+  border-radius: 8px;
+  background: linear-gradient(95deg, #346af7 0%, #6ecedd 90%);
+  border: none;
+  color: #fff;
+  font-size: 1.07rem;
+  font-weight: 600;
+  margin-top: 2px;
+  cursor: pointer;
+  box-shadow: 0 2px 11px rgba(49, 106, 206, 0.09);
+  transition: background 0.13s, transform 0.14s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(95deg, #264bcf 0%, #54b6cc 100%);
+  transform: scale(1.03);
+}
+
+/* Responsive tweaks */
+@media (max-width: 1200px) {
+  .section-grid {
+    gap: 18px;
   }
-  to {
-    transform: rotate(360deg);
+  .card-section {
+    min-width: 240px;
+    max-width: 320px;
+    padding: 22px 12px 12px 12px;
+  }
+}
+
+@media (max-width: 800px) {
+  .main-title {
+    font-size: 1.45rem;
+  }
+  .card-section {
+    min-width: 170px;
+    max-width: 280px;
+  }
+}
+
+/* For mobile layouts, stack vertically */
+@media (max-width: 650px) {
+  .section-grid {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .card-section {
+    min-width: unset;
+    max-width: unset;
   }
 }
